@@ -3127,7 +3127,7 @@ def parse_arguments() -> argparse.Namespace:
     )
     p.add_argument(
         "--transport",
-        choices=["stdio", "streamable-http"],
+        choices=["stdio", "streamable-http", "sse"],
         default="stdio",
         help="Transport protocol to use (default: stdio)"
     )
@@ -3185,7 +3185,7 @@ class AlpacaMCPServer:
         
         Use stdio (default) for local, or streamable-http with --allowed-hosts for cloud.
         """
-        if transport == "streamable-http":
+        if transport in ["streamable-http", "sse"]:
             # Configure FastMCP settings for HTTP transport
             mcp.settings.host = host
             mcp.settings.port = port

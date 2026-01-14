@@ -125,9 +125,9 @@ def init(api_key: Optional[str], secret_key: Optional[str],
 @main.command()
 @click.option(
     '--transport',
-    type=click.Choice(['stdio', 'streamable-http']),
+    type=click.Choice(['stdio', 'streamable-http', 'sse']),
     default='stdio',
-    help='Transport method: stdio or streamable-http (default: stdio)'
+    help='Transport method: stdio, streamable-http, or sse (default: stdio)'
 )
 @click.option(
     '--host',
